@@ -1,9 +1,8 @@
-var http = require("http");
+const express = require("express");
+const app = express();
+app.use(express.static(__dirname + "/public"));
+app.get("/", (req, res) => {
+  res.send("Hello world!!");
+});
 
-//create a server object:
-http
-  .createServer(function(req, res) {
-    res.write("Hello World!"); //write a response to the client
-    res.end(); //end the response
-  })
-  .listen(8080); //the server object listens on port 8080
+app.listen(8080);
